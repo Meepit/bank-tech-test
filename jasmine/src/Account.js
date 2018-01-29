@@ -5,7 +5,11 @@ class Account{
   }
 
   deposit(amount){
-    this.balance += 100;
+    this.balance += amount;
+  }
+
+  withdraw(amount){
+    this.balance -= amount
   }
 
   getBalance(){

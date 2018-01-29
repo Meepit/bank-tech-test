@@ -21,4 +21,12 @@ describe("Account", function(){
       expect(account.getBalance()).toEqual(100);
     })
   })
+
+  describe("#withdraw", function(){
+    it("Should be allowed to withdraw funds when available", function(){
+      account.deposit(100);
+      account.withdraw(90);
+      expect(account.getBalance()).toEqual(10);
+    })
+  })
 })
