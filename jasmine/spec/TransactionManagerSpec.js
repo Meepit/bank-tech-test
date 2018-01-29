@@ -9,7 +9,5 @@ describe("TransactionManager", function(){
     transactionManager = new TransactionManager(transactionPrinter);
   })
 
-  describe("#constructor", function(){
-
-  })
+  
 })
