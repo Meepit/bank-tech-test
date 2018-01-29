@@ -1,7 +1,8 @@
 class Customer{
-  constructor(name, account = new Account){
+  constructor(name, account = new Account, transactionPrinter = new TransactionPrinter){
     this.name = name;
     this.account = account;
+    this.transactionPrinter = transactionPrinter;
   }
 
   getBalance(){
@@ -14,5 +15,9 @@ class Customer{
 
   withdraw(amount){
     this.account.withdraw(amount);
+  }
+
+  showTransactionHistory(){
+    this.transactionPrinter.showHistory();
   }
 }

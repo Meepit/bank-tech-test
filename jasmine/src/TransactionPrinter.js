@@ -1,0 +1,7 @@
+class TransactionPrinter{
+  constructor(){}
+
+  showHistory(){
+    
+  }
+}

@@ -9,13 +9,17 @@ describe("Player", function() {
       getBalance: function(){return 100},
     }
 
+    transactionPrinter = {
+      showHistory: function(){},
+    }
+
     spyOn(account, 'deposit');
     spyOn(account, 'withdraw');
+    spyOn(transactionPrinter, 'showHistory');
 
-    customer = new Customer("James", account);
+    customer = new Customer("James", account, transactionPrinter);
   });
 
-  //demonstrates use of expected exceptions
   describe("#deposit", function() {
     it("Should be able to deposit funds", function(){
       customer.deposit(100);
@@ -35,6 +39,13 @@ describe("Player", function() {
     it("Should be able to withdraw funds", function(){
       customer.withdraw(100);
       expect(account.withdraw).toHaveBeenCalled();
+    })
+  })
+
+  describe("#showHistory", function(){
+    it("Should be able to view their transaction history", function(){
+      customer.showTransactionHistory();
+      expect(transactionPrinter.showHistory).toHaveBeenCalled();
     })
   })
 });
