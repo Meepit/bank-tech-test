@@ -23,6 +23,6 @@ class Customer{
   }
 
   getCredit(){
-    return this.credit;
+    return this.account.getCredit();
   }
 }

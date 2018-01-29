@@ -7,6 +7,7 @@ describe("Player", function() {
       deposit: function(amount){},
       withdraw: function(amount){},
       getBalance: function(){},
+      getCredit: function(){},
     }
 
     transactionPrinter = {
@@ -16,6 +17,8 @@ describe("Player", function() {
     spyOn(account, 'deposit');
     spyOn(account, 'withdraw');
     spyOn(account, 'getBalance');
+    spyOn(account, 'getCredit');
+
     spyOn(transactionPrinter, 'showHistory');
 
     customer = new Customer("James", account, transactionPrinter);
@@ -58,8 +61,9 @@ describe("Player", function() {
   })
 
   describe("#credit", function(){
-    it("Should be able to view allowed credit", function(){
-      expect(customer.getCredit()).toEqual(0);
+    it("Can view their credit limit", function(){
+      customer.getCredit();
+      expect(account.getCredit).toHaveBeenCalled();
     })
   })
 });
