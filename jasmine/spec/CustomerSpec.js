@@ -5,8 +5,8 @@ describe("Player", function() {
   beforeEach(function() {
     account = {
       deposit: function(amount){},
-      withdraw: function(amout){},
-      getBalance: function(){return 100},
+      withdraw: function(amount){},
+      getBalance: function(){},
     }
 
     transactionPrinter = {
@@ -15,6 +15,7 @@ describe("Player", function() {
 
     spyOn(account, 'deposit');
     spyOn(account, 'withdraw');
+    spyOn(account, 'getBalance');
     spyOn(transactionPrinter, 'showHistory');
 
     customer = new Customer("James", account, transactionPrinter);
@@ -34,6 +35,13 @@ describe("Player", function() {
     //   }).toThrowError("song is already playing");
     // });
   });
+
+  describe("#getBalance", function(){
+    it("Should be able to view their balance", function(){
+      customer.getBalance();
+      expect(account.getBalance).toHaveBeenCalled();
+    })
+  })
 
   describe("#withdraw", function(){
     it("Should be able to withdraw funds", function(){
