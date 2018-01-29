@@ -56,4 +56,10 @@ describe("Player", function() {
       expect(transactionPrinter.showHistory).toHaveBeenCalled();
     })
   })
+
+  describe("#credit", function(){
+    it("Should be able to view allowed credit", function(){
+      expect(customer.getCredit()).toEqual(0);
+    })
+  })
 });

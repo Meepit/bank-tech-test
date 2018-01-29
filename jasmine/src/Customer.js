@@ -1,6 +1,7 @@
 class Customer{
   constructor(name, account = new Account, transactionPrinter = new TransactionPrinter){
     this.name = name;
+    this.credit = 0.00;
     this.account = account;
     this.transactionPrinter = transactionPrinter;
   }
@@ -19,5 +20,9 @@ class Customer{
 
   showTransactionHistory(){
     this.transactionPrinter.showHistory();
+  }
+
+  getCredit(){
+    return this.credit;
   }
 }
