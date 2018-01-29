@@ -5,9 +5,12 @@ describe("Account", function(){
   beforeEach(function(){
     transactionManager = {
       createTransaction: function(){},
+      showHistory: function(){},
     }
 
     spyOn(transactionManager, 'createTransaction');
+    spyOn(transactionManager, 'showHistory');
+
     account = new Account(transactionManager);
   })
 
@@ -46,6 +49,13 @@ describe("Account", function(){
     it("Should create a new transaction", function(){
       account.createTransaction();
       expect(transactionManager.createTransaction).toHaveBeenCalled();
+    })
+  })
+
+  describe("#showHistory", function(){
+    it("Should be allowed to see their transaction history", function(){
+      account.showHistory();
+      expect(transactionManager.showHistory).toHaveBeenCalled();
     })
   })
 })
