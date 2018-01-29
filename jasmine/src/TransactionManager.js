@@ -4,5 +4,8 @@ class TransactionManager{
     this.transactionClass = transactionClass;
   }
 
-
+  createTransaction(date = new Date){
+    var dateStr = date.toLocalDateString('en-GB');
+    
+  }
 }
