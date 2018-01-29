@@ -14,4 +14,11 @@ describe("Account", function(){
       expect(account.getCredit()).toEqual(0.00);
     })
   })
+
+  describe("#deposit", function(){
+    it("Should be allowed to deposit funds and have them added to the balance", function(){
+      account.deposit(100);
+      expect(account.getBalance()).toEqual(100);
+    })
+  })
 })

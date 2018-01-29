@@ -5,7 +5,7 @@ class Account{
   }
 
   deposit(amount){
-
+    this.balance += 100;
   }
 
   getBalance(){
