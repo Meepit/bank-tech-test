@@ -11,4 +11,8 @@ class Customer{
   deposit(amount){
     this.account.deposit(amount);
   }
+
+  withdraw(amount){
+    this.account.withdraw(amount);
+  }
 }
