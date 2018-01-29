@@ -47,9 +47,9 @@ describe("TransactionManager", function(){
     })
   })
 
-  describe("#displayTransactionHistory", function(){
+  describe("#showHistory", function(){
     it("Should display the transaction history", function(){
-      transactionManager.displayTransactionHistory();
+      transactionManager.showHistory();
       expect(transactionPrinter.printHistory).toHaveBeenCalled();
     })
   })

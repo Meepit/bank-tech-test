@@ -15,8 +15,8 @@ class TransactionManager{
     return this.transactionHistory;
   }
 
-  displayTransactionHistory(){
-    this.transactionPrinter.printHistory(this.getTransactionHistory());
+  showHistory(){
+    return this.transactionPrinter.printHistory(this.getTransactionHistory());
   }
 
   _recordTransaction(transaction){

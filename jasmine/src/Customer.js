@@ -17,7 +17,7 @@ class Customer{
   }
 
   showTransactionHistory(){
-    this.account.showHistory();
+    return this.account.showHistory();
   }
 
   getCredit(){

@@ -26,11 +26,11 @@ class Account{
     return this.credit;
   }
 
-  createTransaction(){
-    this.transactionManager.createTransaction();
+  createTransaction(type, amount, newBalance){
+    this.transactionManager.createTransaction(type, amount, newBalance);
   }
 
   showHistory(){
-    this.transactionManager.showHistory();
+    return this.transactionManager.showHistory();
   }
 }

@@ -19,7 +19,7 @@ describe("TransactionPrinter", function(){
 
   describe("#showHistory", function(){
     it("Should print the transaction history", function(){
-      match = "date || credit || debit || balance\n01/01/2001 || 100.00 || 200.00"
+      match = "date || credit || debit || balance\n01/01/2001 || 100.00 || || 200.00"
       expect(printer.printHistory([transaction])).toEqual(match);
     })
   })

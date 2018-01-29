@@ -7,7 +7,7 @@ class TransactionPrinter{
       returnStr += "\n";
       returnStr += transactionList[i].getDate();
       if(transactionList[i].getType() == "credit"){
-        returnStr += " || " + transactionList[i].getAmount();
+        returnStr += " || " + transactionList[i].getAmount() + " ||";
       } else {
         returnStr += " || || " + transactionList[i].getAmount();
       }
