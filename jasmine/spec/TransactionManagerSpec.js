@@ -6,7 +6,7 @@ describe("TransactionManager", function(){
 
   beforeEach(function(){
     transactionPrinter = {
-
+      printHistory: function(){},
     }
 
     date = {
@@ -19,6 +19,7 @@ describe("TransactionManager", function(){
 
     spyOn(date, 'toLocaleDateString');
     spyOn(transaction, 'constructor');
+    spyOn(transactionPrinter, 'printHistory')
 
     transactionManager = new TransactionManager(transactionPrinter);
   })
@@ -35,10 +36,21 @@ describe("TransactionManager", function(){
       expect(date.toLocaleDateString).toHaveBeenCalled();
     })
 
-    it("Records a new transaction", function(){
+    it("Records a new credit transaction", function(){
       transactionManager.createTransaction("credit", 100, 200, date);
-      console.log(transactionManager);
       expect(transactionManager.getTransactionHistory().length).toEqual(1);
+    })
+
+    it("Records a new debit transaction", function(){
+      transactionManager.createTransaction("debit", 100, 0, date);
+      expect(transactionManager.getTransactionHistory().length).toEqual(1);
+    })
+  })
+
+  describe("#displayTransactionHistory", function(){
+    it("Should display the transaction history", function(){
+      transactionManager.displayTransactionHistory();
+      expect(transactionPrinter.printHistory).toHaveBeenCalled();
     })
   })
 })

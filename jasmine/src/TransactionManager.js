@@ -15,7 +15,12 @@ class TransactionManager{
     return this.transactionHistory;
   }
 
+  displayTransactionHistory(){
+    this.transactionPrinter.printHistory(this.getTransactionHistory());
+  }
+
   _recordTransaction(transaction){
     this.transactionHistory.push(transaction);
   }
+
 }
