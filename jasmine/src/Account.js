@@ -7,10 +7,15 @@ class Account{
 
   deposit(amount){
     this.balance += amount;
+    //createTransaction()
   }
 
   withdraw(amount){
-    this.balance -= amount
+    if((this.getBalance() + this.getCredit()) - amount < 0){
+      throw "Insufficient funds";
+    }
+    this.balance -= amount;
+    //createTransaction()
   }
 
   getBalance(){

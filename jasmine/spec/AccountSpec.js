@@ -33,6 +33,12 @@ describe("Account", function(){
       account.deposit(100);
       account.withdraw(90);
       expect(account.getBalance()).toEqual(10);
+    });
+
+    it("Cannot withdraw funds if insufficient balance and credit", function(){
+      expect(function(){
+        account.withdraw(50);
+      }).toThrow();
     })
   })
 
