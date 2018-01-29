@@ -1,4 +1,4 @@
-describe("Player", function() {
+describe("Customer", function() {
   var customer;
   var account;
 
