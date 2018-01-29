@@ -29,4 +29,8 @@ class Account{
   createTransaction(){
     this.transactionManager.createTransaction();
   }
+
+  showHistory(){
+    this.transactionManager.showHistory();
+  }
 }

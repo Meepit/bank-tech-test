@@ -1,7 +1,6 @@
 describe("Player", function() {
   var customer;
   var account;
-  var transactionPrinter;
 
   beforeEach(function() {
     account = {
@@ -9,9 +8,6 @@ describe("Player", function() {
       withdraw: function(amount){},
       getBalance: function(){},
       getCredit: function(){},
-    }
-
-    transactionPrinter = {
       showHistory: function(){},
     }
 
@@ -19,10 +15,9 @@ describe("Player", function() {
     spyOn(account, 'withdraw');
     spyOn(account, 'getBalance');
     spyOn(account, 'getCredit');
+    spyOn(account, 'showHistory');
 
-    spyOn(transactionPrinter, 'showHistory');
-
-    customer = new Customer("James", account, transactionPrinter);
+    customer = new Customer("James", account);
   });
 
   describe("#deposit", function() {
@@ -49,7 +44,7 @@ describe("Player", function() {
   describe("#showHistory", function(){
     it("Should be able to view their transaction history", function(){
       customer.showTransactionHistory();
-      expect(transactionPrinter.showHistory).toHaveBeenCalled();
+      expect(account.showHistory).toHaveBeenCalled();
     })
   })
 

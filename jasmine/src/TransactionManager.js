@@ -1,3 +1,7 @@
 class TransactionManager{
-  constructor(){};
+  constructor(transactionPrinter = new TransactionPrinter){
+    this.transactionPrinter = transactionPrinter;
+  }
+
+  
 }
