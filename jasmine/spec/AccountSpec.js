@@ -1,8 +1,14 @@
 describe("Account", function(){
   var account;
+  var transactionManager;
 
   beforeEach(function(){
-    account = new Account();
+    transactionManager = {
+      createTransaction: function(){},
+    }
+
+    spyOn(transactionManager, 'createTransaction');
+    account = new Account(transactionManager);
   })
 
   describe("#constructor", function(){
@@ -27,6 +33,13 @@ describe("Account", function(){
       account.deposit(100);
       account.withdraw(90);
       expect(account.getBalance()).toEqual(10);
+    })
+  })
+
+  describe("#createTransaction", function(){
+    it("Should create a new transaction", function(){
+      account.createTransaction();
+      expect(transactionManager.createTransaction).toHaveBeenCalled();
     })
   })
 })

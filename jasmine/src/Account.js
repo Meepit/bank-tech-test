@@ -1,7 +1,8 @@
 class Account{
-  constructor(){
+  constructor(transactionManager = new TransactionManager){
     this.balance = 0.00;
     this.credit = 0.00;
+    this.transactionManager = transactionManager;
   }
 
   deposit(amount){
@@ -18,5 +19,9 @@ class Account{
 
   getCredit(){
     return this.credit;
+  }
+
+  createTransaction(){
+    this.transactionManager.createTransaction();
   }
 }

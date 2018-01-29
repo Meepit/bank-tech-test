@@ -1,6 +1,7 @@
 describe("Player", function() {
   var customer;
   var account;
+  var transactionPrinter;
 
   beforeEach(function() {
     account = {
